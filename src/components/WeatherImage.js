@@ -20,6 +20,8 @@ function WeatherImage({ weatherType }) {
       return <FontAwesomeIcon icon={faSmog} />;
     case "scattered clouds":
       return <FontAwesomeIcon icon={faCloud} />;
+    case "broken clouds":
+      return <FontAwesomeIcon icon={faCloud} />;
     default:
       return <FontAwesomeIcon icon={faWind} />;
   }

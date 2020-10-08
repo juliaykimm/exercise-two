@@ -18,7 +18,7 @@ function Home() {
     // setBackgroundColor("e5e5e5");
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherKey}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${weatherKey}`
       ) // url or request
       .then(function (response) {
         // handle success
@@ -63,12 +63,12 @@ function Home() {
 
     if (weatherData) {
       cloudiness = `${weatherData.clouds.all}%`;
-      currentTemp = `${weatherData.main.temp}`;
-      highTemp = `${weatherData.main.temp_max}`;
+      currentTemp = `${Math.round(weatherData.main.temp)}˚`;
+      highTemp = `${Math.round(weatherData.main.temp_max)}˚`;
       humidity = `${weatherData.main.humidity}%`;
-      lowTemp = `${weatherData.main.temp_min}`;
+      lowTemp = `${Math.round(weatherData.main.temp_min)}˚`;
       weatherType = `${weatherData.weather[0].description}`;
-      windSpeed = `${weatherData.wind.speed} km/hr`;
+      windSpeed = `${weatherData.wind.speed} mph`;
     }
 
     return {
@@ -87,12 +87,15 @@ function Home() {
   return (
     <>
       <Header />
-      <main className="Home" /*style={{ backgroundColor }}*/>
+      <main className="Home">
         <h2>
-          Weather in <span>{city}</span>
+          Weather in&nbsp;<span>{city}</span>
         </h2>
         <div className="WeatherInfo">
-          <div className="WeatherInfo_Basic">
+          <div
+            className="WeatherInfo_Basic"
+            style={{ backgroundColor: `rgba(1,50,70,${cloudiness})` }}
+          >
             <div className="WeatherInfo_Image">
               <WeatherImage weatherType={weatherType} />
             </div>
