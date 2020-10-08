@@ -23,7 +23,7 @@
 }
 
 .Header nav a:hover{
-  color: green;
+  color: #8490ab;
 }
 
 /*--- Home Styling ---*/
@@ -44,7 +44,7 @@
 }
 
 .Home h2 span{
-  color: green;
+  color: #8490ab;
 }
 
 .WeatherInfo {

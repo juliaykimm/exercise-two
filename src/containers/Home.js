@@ -11,7 +11,7 @@ function Home() {
   const history = useHistory();
   // const [backgroundColor, setBackgroundColor] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
-  const [city, setCity] = useState("Chicago");
+  const [city, setCity] = useState("Shangahi");
 
   useEffect(() => {
     // setCity("Seoul");
