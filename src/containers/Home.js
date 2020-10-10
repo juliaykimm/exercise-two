@@ -68,7 +68,7 @@ function Home() {
       humidity = `${weatherData.main.humidity}%`;
       lowTemp = `${Math.round(weatherData.main.temp_min)}˚`;
       weatherType = `${weatherData.weather[0].description}`;
-      windSpeed = `${weatherData.wind.speed} mph`;
+      windSpeed = `${weatherData.wind.speed}mph`;
     }
 
     return {
@@ -81,8 +81,6 @@ function Home() {
       windSpeed,
     };
   }, [weatherData]);
-
-  console.log("weatherData", weatherData);
 
   return (
     <>
@@ -103,20 +101,20 @@ function Home() {
             <h3 className="Label">Current Temperature:</h3>
             <p className="WeatherInfo_Temperature">{currentTemp}</p>
           </div>
-          <div className="WeatherInfo_Extra">
-            <div className="WeatherInfo_Extra_Column">
-              <h3 className="Label">High Temperature</h3>
-              <p className="WeatherInfo_Temperature_Small">{highTemp} </p>
-              <h3 className="Label">Low Temperature</h3>
-              <p className="WeatherInfo_Temperature_Small">{lowTemp}</p>
-            </div>
-            <div className="WeatherInfo_Extra_Column">
+          <div>
+            <div className="WeatherInfo_Extra">
+              <h3 className="Label">High Temperature:</h3>
+              <h3 className="Label">Low Temperature:</h3>
               <h3 className="Label">Cloudiness:</h3>
-              <p className="WeatherInfo_Temperature_Small">{cloudiness}</p>
-              <h3 className="Label">Humidity</h3>
-              <p className="WeatherInfo_Temperature_Small">{humidity}</p>
-              <h3 className="Label">Wind Speed</h3>
-              <p className="WeatherInfo_Temperature_Small">{windSpeed}</p>
+              <h3 className="Label">Humidity:</h3>
+              <h3 className="Label">Wind Speed:</h3>
+            </div>
+            <div className="WeatherInfo_Numbers_Small">
+              <p className="Label2">{highTemp} </p>
+              <p className="Label2">{lowTemp}</p>
+              <p className="Label2">{cloudiness} </p>
+              <p className="Label2">{humidity}</p>
+              <p className="Label2">{windSpeed}</p>
             </div>
           </div>
         </div>
